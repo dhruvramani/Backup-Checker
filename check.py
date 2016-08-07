@@ -1,4 +1,5 @@
 import os
+import sys
 
 dirF = list()
 def checkDir(originalDir, backupDir):
@@ -17,8 +18,14 @@ def checkDir(originalDir, backupDir):
                 dirF.append('\033[1m\033[94m==>\033[0m File \033[4m{}/{}\033[0m Needs to be Backed-up\033[0m'.format(originalDir,i))
 
 def main():
-    dir = '{}/{}'.format(os.getcwd(), input('Enter Relative Directory : '))
-    backupDir = '/Volumes/{}'.format(input('Enter Backup_Disk/Directory_Name : '))
+    
+    if len(sys.argv) == 1: 
+        dir = '{}/{}'.format(os.getcwd(), input('Enter Relative Directory : '))
+        backupDir = '/Volumes/{}'.format(input('Enter Backup_Disk/Directory_Name : '))
+    else :
+        dir = sys.argv[1]
+        backupDir = sys.argv[2]
+
     checkDir(dir, backupDir)
     print('\n' + '\n'.join(dirF))
 
