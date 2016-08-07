@@ -23,8 +23,8 @@ def main():
         dir = '{}/{}'.format(os.getcwd(), input('Enter Relative Directory : '))
         backupDir = '/Volumes/{}'.format(input('Enter Backup_Disk/Directory_Name : '))
     else :
-        dir = sys.argv[1]
-        backupDir = sys.argv[2]
+        dir = '{}/{}'.format(os.getcwd(),sys.argv[1])
+        backupDir = '/Volumes/{}'.format(sys.argv[2])
 
     checkDir(dir, backupDir)
     print('\n' + '\n'.join(dirF))
